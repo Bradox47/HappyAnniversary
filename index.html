@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❤Happy anniversary❤</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="first-page">
+
+  <video autoplay muted loop id="video-background">
+	  <source src="universe.mp4" type="video/mp4">
+	   Your browser does not support the video tag.
+  </video>
+  
+  <!-- Text above the heart -->
+  <p class="above-heart-text">I love you Desiré. Your name is etched on my heart❤</p>
+
+  <!-- Heart and magnifying glass container -->
+  <div class="heart-container" onclick="inspectHeart()">
+    <div class="heart"></div>
+    <span class="text-overlap">Desiré</span>
+  </div>
+
+  <!-- Magnifying glass -->
+  <div class="magnifier" id="magnifier">🔍</div>
+
+  <script>
+    function inspectHeart() {
+      const heart = document.querySelector(".heart");
+      const magnifier = document.getElementById("magnifier");
+      const body = document.getElementById("first-page");
+
+      // Stop the heart pulsing and add the inspection effect
+      heart.classList.remove("pulse");
+      magnifier.classList.add("fly-magnifier");
+
+      // Add enlargement effect after the magnifying glass stops
+      setTimeout(() => {
+        heart.classList.add("enlarge");
+
+        // Fade out the first page
+        setTimeout(() => {
+          body.classList.add("fade-out");
+
+          // Redirect after fade-out
+          setTimeout(() => {
+            window.location.href = "page2.html"; // Replace with your target page
+          }, 1000); // Duration of fade-out animation
+          
+        }, 1000); // Start fade-out after heart is zoomed in
+
+      }, 1800); // Magnifier animation takes 2s, so heart enlarges after 1.8s
+    }
+  </script>
+  
+</body>
+</html>

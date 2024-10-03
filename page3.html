@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Poem for My Love</title>
+  <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+
+  <video autoplay muted loop id="video-background">
+	<source src="universe.mp4" type="video/mp4">
+	Your browser does not support the video tag.
+  </video>
+  
+  <!-- Centered paragraph for the typewriter effect -->
+  <div class="centered-container">
+    <p id="typewriter"></p> <!-- The paragraph that will display the typing effect -->
+  </div>
+
+  <script>
+	document.addEventListener('DOMContentLoaded', () => {
+	const text = `This is the first line.\nThis is the second line.\nAnd here is the third line.`; // Your paragraph text with line breaks
+	const speed = 20; // Typing speed in milliseconds, lower for faster typing
+	const lineBreakSpeed = 200; // Speed for adding a line break, slightly slower to emphasize new lines
+	let index = 0;
+
+	function typeWriter() {
+	if (index < text.length) {
+	  // Check if the current character is a newline
+	  if (text.charAt(index) === '\n') {
+		document.getElementById("typewriter").innerHTML += "<br>"; // Add a line break in HTML
+		setTimeout(typeWriter, lineBreakSpeed); // Slightly slower after line breaks
+	  } else {
+		document.getElementById("typewriter").innerHTML += text.charAt(index); // Add character
+		setTimeout(typeWriter, speed); // Normal typing speed
+	  }
+	  index++;
+	}
+	}
+
+	typeWriter(); // Start typing when the page loads
+	});
+
+  
+  </script>
+
+</body>
+</html>

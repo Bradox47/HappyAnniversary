@@ -1,0 +1,144 @@
+body, html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  flex-direction: column;
+  opacity: 1;
+  overflow: hidden;
+  transition: opacity 1s ease; /* Smooth transition for fade-out */
+}
+
+/* Fade out effect */
+.fade-out {
+  opacity: 0;
+}
+
+/* Text above the heart */
+.above-heart-text {
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  color: white;
+  margin-bottom: 150px;
+}
+
+.heart-container {
+  /*position: relative;*/
+  width: 200px;
+  height: 200px;
+}
+
+.heart {
+  /*position: relative;*/
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  transform: rotate(-45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  border-radius: 50%;
+  top: -100px;
+  left: 0;
+}
+
+.heart::after {
+  left: 100px;
+  top: 0;
+}
+
+/* Text properly centered inside the heart */
+.text-overlap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  color: white;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Magnifier styling */
+.magnifier {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  font-size: 50px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+
+.fly-magnifier {
+  animation: fly-to-heart 2s ease forwards;
+  opacity: 1;
+}
+
+@keyframes fly-to-heart {
+  0% {
+    left: 0;
+    top: 50%;
+    transform: scale(1);
+  }
+  80% {
+    left: 45%;
+    top: 50%;
+    transform: scale(1);
+  }
+  100% {
+    left: 50%;
+    top: 45%;
+    transform: scale(1.5);
+  }
+}
+
+.enlarge {
+  animation: zoom-in 0.5s ease forwards;
+}
+
+@keyframes zoom-in {
+  100% {
+    transform: scale(1.3) rotate(-45deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-45deg);
+  }
+  100% {
+    transform: scale(1) rotate(-45deg);
+  }
+}
+
+/* Video background settings */
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -1; /* Behind content */
+  object-fit: cover; /* Ensure the video covers the screen */
+}

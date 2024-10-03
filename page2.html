@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift for my love</title>
+  <link rel="stylesheet" href="styles2.css">
+  <style>
+    
+  </style>
+</head>
+<body class="fade-in-body" id="second-page">
+
+  <video autoplay muted loop id="video-background">
+	<source src="universe.mp4" type="video/mp4">
+	Your browser does not support the video tag.
+  </video>
+  <!-- Centered image on the new page -->
+  <div class="image-container">
+    <img src="Carnation2.png" alt="Carnation" class="centered-image">
+    <div class="question-mark">?</div>
+  </div>
+
+  <!-- Text box with a link for opening -->
+  <div class="link-container">
+    <input type="text" id="openLink" class="link-textbox" value="https://forms.gle/DQCV9xVfvrWqhNoU6" readonly>
+  </div>
+
+  <!-- Button to open the link in a new tab -->
+  <div class="button-container">
+    <button id="openLinkButton" onclick="openNewTab()">Open Link in New Tab</button>
+  </div>
+
+  <!-- Hidden button that will change opacity and trigger animations -->
+  <div class="button-container hidden" id="hiddenButtonContainer">
+    <button id="hiddenButton" onclick="changeOpacity()">Done</button>
+  </div>
+
+  <!-- Text container to appear after animation -->
+  <div class="text-container" id="textContainer">
+    Thank you for all you say/do. Here is a flower for you, my beautiful wife.<br>
+    You are my everything. I love you baby❤<br><br>
+    Choose one of the following responses:
+  </div>
+
+  <!-- Response buttons container -->
+  <div class="response-buttons">
+    <button class="response-button" onclick="fadeOutAndRedirect()">I Love You</button>
+    <button class="response-button" onclick="alert('No! Brady loves you most! Mwah!!!!')">I Love You Most</button>
+    <button class="response-button" onclick="alert('You are a potatoe!')">You're an egg</button>
+  </div>
+
+  <script>
+    function openNewTab() {
+      // Get the value of the text box (the URL)
+      var link = document.getElementById("openLink").value;
+
+      // Open the URL in a new tab
+      window.open(link, '_blank');
+
+      // Show the hidden button after a delay (e.g., 3 seconds)
+      setTimeout(function() {
+        document.getElementById("hiddenButtonContainer").classList.remove("hidden");
+      }, 3000); // 3000 milliseconds = 3 seconds
+    }
+
+    function changeOpacity() {
+      // Disable the link container and button
+      var linkContainer = document.querySelector('.link-container');
+      var buttonContainer = document.querySelector('.button-container');
+      
+      // Disable the link textbox
+      document.getElementById("openLink").disabled = true;
+
+      // Disable the button that opens the link
+      document.getElementById("openLinkButton").disabled = true;
+
+      // Fade out the link container and button container
+      linkContainer.style.opacity = '0';
+      buttonContainer.style.opacity = '0';
+
+      // Smoothly zoom in the image
+      var image = document.querySelector('.centered-image');
+      image.style.transform = 'scale(1.2)'; // Adjust zoom level as needed
+
+      // Fade in the text container
+      var textContainer = document.getElementById('textContainer');
+      textContainer.style.opacity = '1';
+
+      // Change the opacity of the image and question mark after a delay
+      setTimeout(() => {
+        image.style.opacity = '0.7'; // Change image opacity
+        var questionMark = document.querySelector('.question-mark');
+        questionMark.style.opacity = '0'; // Change question mark opacity
+        var responseBtn = document.querySelector('.response-buttons');
+        responseBtn.style.opacity = '1';
+      }, 1000); // Delay of 1 second to allow text to appear before changing opacity
+
+      // Hide the hidden button container
+      var hiddenButtonContainer = document.getElementById('hiddenButtonContainer');
+      hiddenButtonContainer.style.display = 'none';
+    }
+
+    // Function to fade out and redirect to Page 3
+    function fadeOutAndRedirect() {
+      // Add the fade-out class to the body to trigger the animation
+      document.body.classList.add('fade-out-body');
+
+      // After the animation ends (e.g., after 1 second), redirect to Page 3
+      setTimeout(function() {
+        window.location.href = "page3.html";
+      }, 1500); // Match the duration of the fade-out animation
+    }
+  </script>
+</body>
+</html>

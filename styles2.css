@@ -1,0 +1,172 @@
+body, html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  flex-direction: column;
+  opacity: 1;
+  overflow: hidden;
+  transition: opacity 1s ease; /* Smooth transition for fade-out */
+}
+
+/* Fade-in and fade-out animations */
+.fade-in-body {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.fade-out-body {
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+	opacity: 0;
+  }
+  to {
+	opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+	opacity: 1;
+  }
+  to {
+	opacity: 0;
+  }
+}
+
+/* Container for the image */
+.image-container {
+  position: relative;
+}
+
+/* Centered image */
+.centered-image {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.0; /* Adjust opacity here (0.0 to 1.0) */
+  border: 2px solid #ccc; /* Border properties */
+  transition: opacity 1s ease; /* Transition for opacity change */
+}
+
+/* Link text box container */
+.link-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.link-textbox {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+/* Button container */
+.button-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Button styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #db7434; /* Change this to your preferred background color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b96029; /* Hover color */
+}
+
+/* Initially hide the hidden button */
+.hidden {
+  display: none;
+}
+
+/* Centering the button containers */
+.button-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Question mark positioning */
+.question-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  opacity: 1.0;
+  transition: opacity 1s ease; /* Transition for opacity change */
+}
+
+/* Additional CSS for text container */
+.text-container {
+  opacity: 0;
+  color: white;
+  transition: opacity 1s ease; /* Transition for opacity change */
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* CSS for the response buttons */
+.response-buttons {
+  margin-top: 20px; /* Add some space above the buttons */
+  text-align: center; /* Center the buttons */
+  opacity: 0.0; /* Adjust opacity here (0.0 to 1.0) */
+  transition: opacity 1s ease; /* Transition for opacity change */																													
+}
+
+.response-button {
+  margin: 5px; /* Space between buttons */
+  padding: 10px 20px; /* Padding for buttons */
+  font-size: 16px; /* Font size for buttons */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #ff69b4; /* Button color */
+  color: white; /* Text color */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.response-button:hover {
+  background-color: #ff1493; /* Darker pink on hover */
+}
+
+/* Video background settings */
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -1; /* Behind content */
+  object-fit: cover; /* Ensure the video covers the screen */
+}

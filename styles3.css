@@ -1,0 +1,60 @@
+body, html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  flex-direction: column;
+  opacity: 1;
+  overflow: hidden;
+  transition: opacity 1s ease; /* Smooth transition for fade-out */
+}
+
+/* Centering the container */
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styling for the typewriter text */
+#typewriter {
+  font-size: 24px; /* Adjust font size */
+  font-family: 'Courier New', Courier, monospace; /* Typewriter-like font */
+  color: white;
+  white-space: pre-wrap; /* Preserve spaces and line breaks */
+  border-right: 2px solid black; /* Cursor-like blinking effect */
+  padding: 10px;
+  user-select: none; /* Disable text selection */
+  pointer-events: none; /* Make the text non-editable */
+  overflow: hidden;
+}
+
+/* Optional: Cursor blinking animation */
+@keyframes blink {
+  0% { border-color: black; }
+  50% { border-color: transparent; }
+  100% { border-color: black; }
+}
+
+#typewriter {
+  animation: blink 0.7s steps(2, start) infinite;
+}
+
+/* Video background settings */
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -1; /* Behind content */
+  object-fit: cover; /* Ensure the video covers the screen */
+}
